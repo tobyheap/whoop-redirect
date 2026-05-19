@@ -9,7 +9,7 @@
       const code = params.get("code");
 
       if (code) {
-        const GAS_URL = "https://script.google.com/macros/s/REPLACE_ME/exec";
+        const GAS_URL = "https://script.google.com/macros/s/AKfycby8xq83EU9WIm6WNIsrBBjG9oWXgzCoSDbXbKQrpFtxU2LChwrHtS4sc2-57nsKu2WgsQ/exec";
         window.location.href = GAS_URL + "?code=" + encodeURIComponent(code);
       } else {
         document.body.innerHTML = "<h2>No WHOOP code found.</h2>";
