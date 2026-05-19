@@ -7,10 +7,15 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
+      const state = params.get("state"); // 1. Grab the state parameter from WHOOP
 
       if (code) {
         const GAS_URL = "https://script.google.com/macros/s/AKfycby8xq83EU9WIm6WNIsrBBjG9oWXgzCoSDbXbKQrpFtxU2LChwrHtS4sc2-57nsKu2WgsQ/exec";
-        window.location.href = GAS_URL + "?code=" + encodeURIComponent(code);
+        
+        // 2. Forward BOTH the code and the state to your Apps Script
+        window.location.href = GAS_URL + 
+                               "?code=" + encodeURIComponent(code) + 
+                               "&state=" + encodeURIComponent(state || "");
       } else {
         document.body.innerHTML = "<h2>No WHOOP code found.</h2>";
       }
